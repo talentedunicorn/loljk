@@ -1,15 +1,22 @@
+import { LinksFunction } from "remix"
+import formStyles from "~/styles/form.css"
+
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: formStyles }]
+}
+
 export default function newJokeRoute() {
   return (
-    <form>
-      <p>Add a funny joke</p>
+    <form className="form">
+      <h2>Add a funny joke</h2>
       <div>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" />
+        <label htmlFor="title">Title</label>
+        <input type="text" id="title" />
       </div>
 
       <div>
-        <label htmlFor="content">Content</label>
-        <textarea id="content"></textarea>
+        <label htmlFor="content">Write your joke here</label>
+        <textarea id="content" rows={10}></textarea>
       </div>
 
       <button type="submit">Add joke</button>

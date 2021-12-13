@@ -1,0 +1,16 @@
+.Card {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5em;
+  border: 0.1em solid var(--gray);
+}
+
+.CardTitle {
+  margin: 0;
+}
+
+.Card p {
+  margin-top: 0;
+}

@@ -1,0 +1,50 @@
+:root {
+  --white: hsl(3, 4%, 98%);
+  --black: hsl(3, 4%, 4%);
+  --gray: hsl(3, 4%, 88%);
+  --purple: rgba(152, 11, 238, 1);
+  --purple-dark: rgba(118, 15, 181, 1);
+  --font: -apple-system, "Segoe UI", Helvetica Neue, Helvetica,
+  Roboto, Arial, sans-serif, system-ui, "Apple Color Emoji",
+  "Segoe UI Emoji";
+  --max-width: 65rem;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  color: var(--black);
+}
+
+body {
+  font-family: var(--font);
+  min-height: 100vh;
+  min-height: calc(100vh - env(safe-area-inset-bottom));
+  display: flex;
+  flex-flow: column;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+}

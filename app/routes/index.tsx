@@ -1,10 +1,16 @@
-import { Link } from "remix";
+import { Link, LinksFunction } from "remix";
+import indexStyles from "~/styles/index.css";
+
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: indexStyles }]
+}
 
 export default function indexRoute() {
   return (
-    <main>
+    <main className="indexPage">
       <h1>LOLJK</h1>
-      <Link to="/jokes">Checkout the jokes</Link>
+      <p>The place for laughs</p>
+      <Link to="/jokes">Read jokes</Link>
     </main>
   )
 }

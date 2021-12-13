@@ -1,0 +1,21 @@
+body {
+  color: hsl(0, 0%, 97%);
+  background-image: radial-gradient(
+    circle,
+    var(--purple) 0%,
+    var(--purple-dark) 35%,
+    var(--black) 100%
+  );
+}
+
+a {
+  color: inherit;
+}
+
+.indexPage {
+  padding: 2rem;
+}
+
+.indexPage h1 {
+  margin: 0 0 1rem;
+}
