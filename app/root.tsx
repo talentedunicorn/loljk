@@ -1,4 +1,4 @@
-import { LiveReload } from "remix";
+import { LiveReload, Outlet } from "remix";
 
 export default function App() {
   return (
@@ -8,7 +8,7 @@ export default function App() {
         <title>Remix: Without DJ Khaleed</title>
       </head>
       <body>
-        Ello, Remix!
+        <Outlet />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
