@@ -2,10 +2,33 @@
   flex: 1;
 }
 
+.JokeListWrapper,
+.JokeList {
+  display: flex;
+  flex-flow: column;
+}
+
+.JokeListWrapper {
+  flex: 0 20rem;
+}
+
+.Title {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.JokeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+}
+
+
 .Content .container {
   padding: 1rem;
   display: flex;
-  flex-flow: column;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 

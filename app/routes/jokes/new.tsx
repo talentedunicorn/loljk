@@ -8,7 +8,7 @@ export const links: LinksFunction = () => {
 export default function newJokeRoute() {
   return (
     <form className="form">
-      <h2>Add a funny joke</h2>
+      <h2 className="Title">Add a funny joke</h2>
       <div>
         <label htmlFor="title">Title</label>
         <input type="text" id="title" />

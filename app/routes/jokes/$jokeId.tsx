@@ -1,9 +1,20 @@
+import { Joke } from "@prisma/client"
+import { Link, LoaderFunction, useLoaderData } from "remix"
+import { db } from "~/utils/db.server"
+
+export const loader: LoaderFunction = async ({ params }) => {
+  const data: Joke | null = await db.joke.findUnique({ where: { id: params.jokeId }})
+  return data
+}
+
 export default function jokeRoute() {
+  const data: Joke = useLoaderData<Joke>()
   return (
     <article className="Card">
-      <h2 className="CardTitle">Pyramids</h2>
-      <h3>Why were the pyramids triangle?</h3>
-      <p>Because that was the only shape they tried to make them in</p>
+      <h2 className="CardTitle">{data.title}</h2>
+      <p>{data.content}</p>
+
+      <Link to=".">Permalink</Link>
     </article>
   )
 }
