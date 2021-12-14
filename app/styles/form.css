@@ -1,11 +1,13 @@
 .form,
-.form > div {
+.form > div,
+.form label {
   display: flex;
   flex-flow: column;
   gap: 1rem;
 }
 
-.form > div {
+.form > div,
+.form label {
   gap: 0.5rem
 }
 
@@ -15,6 +17,11 @@
   border: 0.2em solid var(--form-border, var(--gray));
   border-radius: 0.3rem;
   outline: none;
+}
+
+[data-error]::after {
+  content: attr(data-error);
+  color: var(--red);
 }
 
 .form input:focus,
