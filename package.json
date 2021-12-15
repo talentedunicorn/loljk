@@ -4,8 +4,9 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "remix build",
+    "build": "remix build && npm run prisma migrate deploy",
     "dev": "remix dev",
+    "prisma": "prisma",
     "postinstall": "remix setup node"
   },
   "prisma": {
