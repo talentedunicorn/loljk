@@ -20,6 +20,11 @@ export const loader: LoaderFunction = async () => {
       orderBy: { createdAt: "desc" }
     })
   }
+
+  if (!data.jokes.length) {
+    return new Response("No jokes found", { status: 404 })
+  }
+
   return data
 }
 

@@ -1,4 +1,4 @@
-import { ActionFunction, json, LinksFunction, redirect, useActionData } from "remix"
+import { ActionFunction, Form, json, LinksFunction, redirect, useActionData } from "remix"
 import { Joke } from "@prisma/client"
 import formStyles from "~/styles/form.css"
 import { db } from "~/utils/db.server"
@@ -62,7 +62,7 @@ export const action: ActionFunction =  async ({ request }) => {
 export default function newJokeRoute() {
   const actionData = useActionData<ActionData>()
   return (
-    <form className="form" method="post">
+    <Form className="form" method="post">
       <h2 className="Title">Have a joke to share?</h2>
       <div>
         <label
@@ -97,6 +97,6 @@ export default function newJokeRoute() {
       </div>
 
       <button type="submit">Add joke</button>
-    </form>
+    </Form>
   )
 }

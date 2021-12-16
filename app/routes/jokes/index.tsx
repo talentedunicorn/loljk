@@ -1,4 +1,4 @@
-import { Link, LoaderFunction, useLoaderData } from "remix"
+import { Link, LoaderFunction, useCatch, useLoaderData } from "remix"
 import { Joke } from "@prisma/client";
 import { db } from "~/utils/db.server"
 
@@ -9,8 +9,35 @@ export const loader: LoaderFunction = async () => {
     take: 1,
     skip: randomNumber
   })
+  
+  if (!randomJoke) {
+    throw new Response("No random joke found.", { status: 404 })
+  }
   return randomJoke
 }
+
+export const CatchBoundary = () => {
+  const caught = useCatch();
+  
+  if (caught.status === 404) {
+    return (
+      <div className="error">
+        { caught.data }
+      </div>
+    )
+  }
+
+  throw new Error(`Unexpected error: ${caught.status}`);
+} 
+
+export const ErrorBoundary = () => {
+  return (
+    <div className="error">
+      <p>Opps! Something unpleasant happened. <Link to=".">Retry</Link></p>
+    </div>
+  )
+}
+
 
 export default function jokeIndex() {
   const data: Joke = useLoaderData<Joke>()

@@ -49,3 +49,15 @@ textarea {
   width: 100%;
   margin: 0 auto;
 }
+
+.error {
+  padding: 1rem;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 1rem;
+}
+
+.error a {
+  color: inherit;
+  font-weight: bold;
+}
