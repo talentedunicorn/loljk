@@ -2,6 +2,7 @@ import { ActionFunction, Form, json, LinksFunction, redirect, useActionData } fr
 import { Joke } from "@prisma/client"
 import formStyles from "~/styles/form.css"
 import { db } from "~/utils/db.server"
+import { requireSession } from "~/utils/session.server";
 
 type ValidationFunction  = (key:string) => string | undefined;
 type ActionData = {
@@ -34,6 +35,7 @@ export const links: LinksFunction = () => {
 
 export const action: ActionFunction =  async ({ request }) => {
   const form = await request.formData()
+  const authorId = await requireSession(request)
   const title = form.get('title')
   const content = form.get('content')
 
@@ -48,7 +50,7 @@ export const action: ActionFunction =  async ({ request }) => {
     title: titleValidation(title),
     content: contentValidation(content),
   }
-  const data = { title, content } as Joke
+  const data = { title, content, authorId } as Joke
   if (Object.values(fieldErrors).some(Boolean)) {
     return badRequest({ fieldErrors, data })
   }

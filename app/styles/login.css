@@ -1,0 +1,16 @@
+.loginPage {
+  padding: 2rem;
+}
+
+.back {
+  margin-bottom: 1rem;
+  display: inline-flex;
+}
+
+.form {
+  max-width: 30rem;
+  padding: 1rem;
+  background-color: var(--white);
+  border: 1px solid var(--gray);
+  border-radius: 0.3rem;
+}

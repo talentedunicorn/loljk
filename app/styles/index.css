@@ -17,5 +17,11 @@ a {
 }
 
 .indexPage h1 {
+  font-family: var(--font-alt);
   margin: 0 0 1rem;
+}
+
+.Links {
+  display: flex;
+  gap: 2rem;
 }

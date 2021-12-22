@@ -1,0 +1,24 @@
+button {
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.5em 1em;
+  background: var(--button-bg, var(--purple));
+  color: var(--button-color, var(--white));
+  border: 0.3em solid var(--button-border, var(--purple));
+  border-radius: 0.5em;
+}
+
+button:hover {
+  --button-bg: var(--white);
+  --button-color: var(--black);
+  --button-border: var(--black);
+}
+
+button:active {
+  --button-bg: var(--purple-light);
+}
+
+button:disabled {
+  --button-bg: var(--gray);
+  --button-color: var(--white);
+}

@@ -46,6 +46,18 @@
   text-decoration: none;
 }
 
+.UserControls {
+  flex: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.UserControls .button {
+  font-size: 0.8rem;
+}
+
 @media screen and (min-width: 60rem) {
   .jokesPage {
     display: grid;

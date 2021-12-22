@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Rock+3D&display=swap');
 :root {
   --white: hsl(3, 4%, 98%);
   --black: hsl(3, 4%, 4%);
   --gray: hsl(3, 4%, 88%);
-  --red: rgb(216, 30, 30);
-  --purple: rgba(152, 11, 238, 1);
-  --purple-dark: rgba(118, 15, 181, 1);
-  --font: -apple-system, "Segoe UI", Helvetica Neue, Helvetica,
+  --red: hsl(0deg 76% 48%);
+  --purple: hsl(277deg 91% 49%);
+  --purple-light: hsl(277deg 91% 88%);
+  --purple-dark: hsl(277deg 85% 38%);
+  --font: 'Nunito', -apple-system, "Segoe UI", Helvetica Neue, Helvetica,
   Roboto, Arial, sans-serif, system-ui, "Apple Color Emoji",
   "Segoe UI Emoji";
+  --font-alt: 'Rock 3D', cursive;
   --max-width: 65rem;
 }
 

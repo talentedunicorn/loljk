@@ -10,7 +10,10 @@ export default function indexRoute() {
     <main className="indexPage">
       <h1>LOLJK</h1>
       <p>The place for laughs</p>
-      <Link to="/jokes">Read jokes</Link>
+      <div className="Links">
+        <Link to="/jokes">Read jokes</Link>
+        <Link to="/login">Login</Link>
+      </div>
     </main>
   )
 }
