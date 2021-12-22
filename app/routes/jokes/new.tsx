@@ -10,10 +10,7 @@ type ActionData = {
     title: string | undefined;
     content: string | undefined;
   };
-  data?: {
-    title: string;
-    content: string;
-  }
+  data?: Partial<Joke>
 }
 
 const titleValidation: ValidationFunction = (title: string) => {
@@ -51,7 +48,7 @@ export const action: ActionFunction =  async ({ request }) => {
     title: titleValidation(title),
     content: contentValidation(content),
   }
-  const data = { title, content }
+  const data = { title, content } as Joke
   if (Object.values(fieldErrors).some(Boolean)) {
     return badRequest({ fieldErrors, data })
   }
