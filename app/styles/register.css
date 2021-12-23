@@ -1,21 +1,15 @@
-.loginPage {
+.registerPage {
   padding: 2rem;
 }
 
-.loginPage h1 {
+.registerPage h1 {
   margin: 0 0 1rem;
   font-family: var(--font-alt);
-}
-
-.back {
-  margin-bottom: 1rem;
-  display: inline-flex;
 }
 
 .form {
   max-width: 30rem;
   padding: 1rem;
-  background-color: var(--white);
   border: 1px solid var(--gray);
-  border-radius: 0.3rem;
+  border-radius: 0.3em;
 }

@@ -86,3 +86,13 @@ export const getUser = async (request: Request) => {
     throw logout(request)
   }
 }
+
+export const createUser = async ({ username, password }: TLogin) => {
+  const passwordHash = await bcrypt.hash(password, 10)
+  return db.user.create({
+    data: {
+      username,
+      passwordHash
+    }
+  })
+}

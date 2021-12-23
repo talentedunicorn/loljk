@@ -62,14 +62,14 @@ export const loader: LoaderFunction = async ({ request }) => {
 const badRequest = (data: ActionData) => json(data, { status: 400 })
 
 const validateUsername = (value: unknown) => {
-  if (typeof value !== "string" || value.length < 3) {
-    return `Username must be atleast 3 characters long`
+  if (typeof value !== "string" || value.trim().length < 1) {
+    return `Username is required`
   }
 }
 
 const validatePassword = (value: unknown) => {
-  if (typeof value !== "string" || value.length < 6) {
-    return `Password must be atleast 6 characters long`
+  if (typeof value !== "string" || value.trim().length < 1) {
+    return `Password is required`
   }
 }
 
@@ -78,7 +78,8 @@ export default function LoginRoute() {
   const [searchParams] = useSearchParams()
   return (
     <main className="loginPage">
-      <Link to="/" className="back">Go back</Link>
+      <h1>Log in</h1>
+      <Link to="/" className="back">Home</Link>
       <form method="post" className="form">
         {actionData?.formError && <span className="error">{ actionData.formError }</span>}
         <input type="hidden" name="redirectTo" value={ searchParams.get("redirectTo") ?? undefined } />
@@ -106,13 +107,13 @@ export default function LoginRoute() {
             type="password"
             id="password"
             name="password"
-            defaultValue={actionData?.fields?.password}
             aria-invalid={
               Boolean(actionData?.fieldErrors?.password) || undefined
             }
           />
         </div>
         <button type="submit">Login</button>
+        <Link to="/register">Or create a new account?</Link>
       </form>
     </main>
   )
