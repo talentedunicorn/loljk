@@ -10,7 +10,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 export default function jokeRoute() {
   const data: Joke = useLoaderData<Joke>()
   return (
-    <article className="Card">
+    <article>
       <h2 className="CardTitle">{data.title}</h2>
       <p>{data.content}</p>
 

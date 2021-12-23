@@ -44,7 +44,7 @@ export default function jokeIndex() {
   return (
     <aside>
       <h2 className="Title">Here's a random joke</h2>
-      <article className="Card">
+      <article>
         <h3 className="CardTitle">{data.title}</h3>
         <p>{data.content}</p>
         <Link to={`/jokes/${data.id}`}>Permalink</Link>

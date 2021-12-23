@@ -24,12 +24,21 @@
   gap: 1rem;
 }
 
+.JokeList a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.JokeList .active {
+  font-weight: bold;
+}
+
 
 .Content .container {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .Nav {
@@ -46,6 +55,10 @@
   text-decoration: none;
 }
 
+.Nav .active {
+  color: var(--purple);
+}
+
 .UserControls {
   flex: 100%;
   display: flex;
@@ -56,6 +69,10 @@
 
 .UserControls .button {
   font-size: 0.8rem;
+}
+
+.form {
+  flex: 1;
 }
 
 @media screen and (min-width: 60rem) {

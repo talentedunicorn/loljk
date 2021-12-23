@@ -1,4 +1,4 @@
-import { Outlet, Link, LinksFunction, LoaderFunction, useLoaderData } from "remix";
+import { Outlet, LinksFunction, LoaderFunction, useLoaderData, NavLink } from "remix";
 import jokesStyles from "~/styles/jokes.css";
 import cardStyles from "~/styles/card.css";
 import buttonsStyles from "~/styles/buttons.css";
@@ -34,13 +34,35 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function jokesIndex() {
   const data: LoaderData = useLoaderData<LoaderData>();
+  type NavItem = { path: string, label: string }
+  const navs: NavItem[] = [
+    {
+      path: '/',
+      label: 'Home'
+    },
+    {
+      path: '.',
+      label: 'Jokes'
+    },
+    {
+      path: 'new',
+      label: 'Add joke'
+    }
+  ];
 
   return (
     <main className="jokesPage">
       <nav className="Nav">
-        <Link to="/">Home</Link>
-        <Link to=".">Random joke</Link>
-        <Link to="new">Add joke</Link>
+        {navs.map((link: NavItem) => (
+          <NavLink
+            key={link.path}
+            to={link.path}
+            className={({ isActive }) => 
+              isActive ? 'active' : ''
+            }
+            end
+          >{link.label}</NavLink>
+        ))}
       </nav>
       <section className="Content">
         <div className="container">
@@ -54,12 +76,15 @@ export default function jokesIndex() {
           <div className="JokeListWrapper">
             <h2 className="Title">Current jokes</h2>
             {data.jokes && (
-              <ul className="JokeList">
+              <ul className="JokeList Card">
                 {data.jokes.map((j: Partial<Joke>) => (
                   <li
                     key={j.id}
                   >
-                    <Link to={j.id || ''}>{j.title}</Link>
+                    <NavLink 
+                      to={j.id || ''}
+                      className={({ isActive }) => isActive ? 'active' : ''}
+                    >{j.title}</NavLink>
                   </li>
                 ))}
               </ul>
